@@ -61,38 +61,68 @@ export const skills = [
   { name: "Firebase" },
 ];
 
-export const blogPosts = [
+export const gallery = [
   {
-    title: "Building Scalable React Applications",
-    date: "2024-03-10",
-    url: "https://dev.to/yourblog/building-scalable-react-applications",
+    image: "images/frog.jpg",
   },
   {
-    title: "TypeScript Best Practices",
-    date: "2024-02-25",
-    url: "https://dev.to/yourblog/typescript-best-practices",
+    image: "images/cat.jpg",
   },
   {
-    title: "Modern State Management in React",
-    date: "2024-02-10",
-    url: "https://dev.to/yourblog/modern-state-management-in-react",
+    image: "images/cats.jpg",
+  },
+  {
+    image: "images/chinu.jpg",
+  },
+
+  {
+    image: "images/ride.jpg",
+  },
+  {
+    image: "images/minu.jpg",
+  },
+  {
+    image: "images/chinu1.jpg",
+  },
+  {
+    image: "images/fish.jpg",
+  },
+  {
+    image: "images/chinu2.jpg",
+  },
+  {
+    image: "images/chinu3.jpg",
+  },
+  {
+    image: "images/drive.jpg",
+  },
+  {
+    image: "images/shells.jpg",
+  },
+  {
+    image: "images/bridge.jpg",
   },
 ];
 
-export const gallery = [
+export const blogPosts = [
   {
-    title: "Coding Setup",
-    image:
-      "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=1000",
+    title: "How I Keep Forgetting LeetCode Problems (And Finally Fixed It!)",
+    date: "2024-03-10",
+    url: "https://goofy-fin-4a4.notion.site/How-I-Keep-Forgetting-LeetCode-Problems-And-Finally-Fixed-It-1b5e9c997087804dba3be7045d3f3d33",
   },
   {
-    title: "Team Collaboration",
-    image:
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1000",
+    title: "pnpm vs. npm vs. yarn",
+    date: "2024-02-10",
+    url: "https://goofy-fin-4a4.notion.site/pnpm-vs-npm-vs-yarn-1b5e9c997087800dbac3d31ac04f2d76",
   },
   {
-    title: "Development Process",
-    image:
-      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1000",
+    title: "Our Unexpected Hackathon Journey at HackIndia 2025 ",
+    date: "2024-02-25",
+    url: "https://goofy-fin-4a4.notion.site/Our-Unexpected-Hackathon-Journey-at-HackIndia-2025-1b5e9c9970878049ada8f17cdea948ab",
+  },
+  {
+    title: "Fear of Driving on Hills & Traffic",
+    date: "2024-02-25",
+    url: "https://goofy-fin-4a4.notion.site/Fear-of-Driving-on-Hills-Traffic-1b5e9c9970878090aa4ed2c8cefc1190",
   },
 ];

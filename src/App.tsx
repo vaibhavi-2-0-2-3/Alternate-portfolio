@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { motion, Reorder } from 'framer-motion';
-import { Github, Linkedin, Mail, ExternalLink, Code2, User, Briefcase, Sun, Moon, BookOpen, Lightbulb, Image } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, Code2, Youtube, User, Briefcase, Sun, Moon, BookOpen, Lightbulb, Image } from 'lucide-react';
 import { TypeAnimation } from 'react-type-animation';
 import ProjectCard from './components/ProjectCard';
 import { projects, skills, blogPosts, gallery } from './data/projects';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import BlogCard from './components/BlogCard';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -45,7 +46,6 @@ function App() {
       </div>
     );
   };
-
 
   const BlogCard = () => (
     <div className="flex flex-col h-full">
@@ -146,15 +146,25 @@ function App() {
           <Code2 className="w-5 h-5 text-500" />
           LeetCode
         </a>
+        <a
+          href="https://www.youtube.com/@vaibhavigaonkar1525"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`flex items-center gap-3 transition-colors ${isDarkMode ? 'hover:text-gray-400' : 'hover:text-gray-600'}`}
+        >
+          <Youtube className="w-5 h-5 text-500" />
+          Youtube
+        </a>
       </div>
     </div>
   );
 
+
   const [items, setItems] = useState([
-    { id: 'skills', component: SkillsCard },
-    { id: 'blog', component: BlogCard },
-    { id: 'gallery', component: GalleryCard },
-    ...projects.map(project => ({ id: project.title, project })),
+    { id: 'skills', component: SkillsCard, span: 'lg:col-span-2' },
+    { id: 'blog', component: () => <BlogCard isDarkMode={isDarkMode} /> },
+    { id: 'gallery', component: GalleryCard, span: 'lg:col-span-2' },
+    ...projects.map(project => ({ id: project.title, project, span: '' })),
     { id: 'social', component: SocialCard }
   ]);
 
