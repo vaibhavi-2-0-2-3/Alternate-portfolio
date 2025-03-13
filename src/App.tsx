@@ -162,7 +162,7 @@ function App() {
 
   const [items, setItems] = useState([
     { id: 'skills', component: SkillsCard, span: 'lg:col-span-2' },
-    { id: 'blog', component: () => <BlogCard isDarkMode={isDarkMode} /> },
+    { id: 'blogs', component: () => <BlogCard isDarkMode={isDarkMode} /> },
     { id: 'gallery', component: GalleryCard, span: 'lg:col-span-2' },
     ...projects.map(project => ({ id: project.title, project, span: '' })),
     { id: 'social', component: SocialCard }
