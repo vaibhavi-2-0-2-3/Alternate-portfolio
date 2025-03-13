@@ -17,6 +17,7 @@ A take look on a developer portfolio—**minimal, modern, and customizable**! �
 
 ## **📞 Contact**  
 📧 **Email:** v.a.i.bhavi062024@gmail.com
-🔗 **Portfolio:** [your-portfolio.com](https://vaibhavi-gaonkar.vercel.app/)  
+<br/>
+🔗 **Portfolio:** [https://vaibhavi-gaonkar.vercel.app](https://vaibhavi-gaonkar.vercel.app/)
 
 ---
