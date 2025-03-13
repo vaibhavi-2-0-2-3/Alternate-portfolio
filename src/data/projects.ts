@@ -1,3 +1,17 @@
+import frog from "../assets/frog.jpg";
+import cat from "../assets/cat.jpg";
+import cats from "../assets/cats.jpg";
+import chinu from "../assets/chinu.jpg";
+import ride from "../assets/ride.jpg";
+import minu from "../assets/minu.jpg";
+import chinu1 from "../assets/chinu1.jpg";
+import fish from "../assets/fish.jpg";
+import chinu2 from "../assets/chinu2.jpg";
+import chinu3 from "../assets/chinu3.jpg";
+import drive from "../assets/drive.jpg";
+import shells from "../assets/shells.jpg";
+import bridge from "../assets/bridge.jpg";
+
 export const projects = [
   {
     title: "Carpooling Website",
@@ -63,44 +77,43 @@ export const skills = [
 
 export const gallery = [
   {
-    image: "images/frog.jpg",
+    image: frog,
   },
   {
-    image: "images/cat.jpg",
+    image: cat,
   },
   {
-    image: "images/cats.jpg",
+    image: cats,
   },
   {
-    image: "images/chinu.jpg",
-  },
-
-  {
-    image: "images/ride.jpg",
+    image: chinu,
   },
   {
-    image: "images/minu.jpg",
+    image: ride,
   },
   {
-    image: "images/chinu1.jpg",
+    image: minu,
   },
   {
-    image: "images/fish.jpg",
+    image: chinu1,
   },
   {
-    image: "images/chinu2.jpg",
+    image: fish,
   },
   {
-    image: "images/chinu3.jpg",
+    image: chinu2,
   },
   {
-    image: "images/drive.jpg",
+    image: chinu3,
   },
   {
-    image: "images/shells.jpg",
+    image: drive,
   },
   {
-    image: "images/bridge.jpg",
+    image: shells,
+  },
+  {
+    image: bridge,
   },
 ];
 
