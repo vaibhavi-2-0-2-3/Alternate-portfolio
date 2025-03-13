@@ -1,5 +1,6 @@
 import React from 'react';
 import { ExternalLink, Github } from 'lucide-react';
+import EmojiGenerator from './EmojiGenerator';
 
 interface ProjectCardProps {
   title: string;
@@ -9,6 +10,7 @@ interface ProjectCardProps {
   githubUrl: string;
   liveUrl?: string;
   isDarkMode?: boolean;
+  component?: string;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -18,8 +20,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   technologies,
   githubUrl,
   liveUrl,
-  isDarkMode = true
+  isDarkMode = true,
+  component
 }) => {
+  if (component === 'EmojiGenerator') {
+    return <EmojiGenerator />;
+  }
+
   return (
     <div className="space-y-4">
       <div className="aspect-video rounded-lg overflow-hidden">
@@ -37,9 +44,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         {technologies.map((tech, index) => (
           <span
             key={index}
-            className={`px-3 py-1 rounded-full text-sm ${
-              isDarkMode ? 'bg-[#2a2a2a] text-gray-300' : 'bg-gray-200 text-gray-700'
-            }`}
+            className={`px-3 py-1 rounded-full text-sm ${isDarkMode ? 'bg-[#2a2a2a] text-gray-300' : 'bg-gray-200 text-gray-700'
+              }`}
           >
             {tech}
           </span>
@@ -50,9 +56,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           href={githubUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className={`flex items-center gap-2 text-sm transition-colors ${
-            isDarkMode ? 'hover:text-gray-400' : 'hover:text-gray-600'
-          }`}
+          className={`flex items-center gap-2 text-sm transition-colors ${isDarkMode ? 'hover:text-gray-400' : 'hover:text-gray-600'
+            }`}
         >
           <Github className="w-4 h-4" />
           Code
@@ -62,9 +67,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             href={liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={`flex items-center gap-2 text-sm transition-colors ${
-              isDarkMode ? 'hover:text-gray-400' : 'hover:text-gray-600'
-            }`}
+            className={`flex items-center gap-2 text-sm transition-colors ${isDarkMode ? 'hover:text-gray-400' : 'hover:text-gray-600'
+              }`}
           >
             <ExternalLink className="w-4 h-4" />
             Live Demo

@@ -4,37 +4,48 @@ import { Github, Linkedin, Mail, ExternalLink, Code2, User, Briefcase, Sun, Moon
 import { TypeAnimation } from 'react-type-animation';
 import ProjectCard from './components/ProjectCard';
 import { projects, skills, blogPosts, gallery } from './data/projects';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
 
   const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
+    setIsDarkMode((prev) => !prev);
   };
 
-  const SkillsCard = () => (
-    <div className="flex flex-col h-full">
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-semibold">Skills</h2>
-        <Lightbulb className="w-6 h-6 text-yellow-400" />
+
+  const SkillsCard = () => {
+    return (
+      <div className="flex flex-col h-full">
+        {/* Title */}
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-xl font-semibold">Skills</h2>
+          <Lightbulb className="w-6 h-6 text-yellow-400" />
+        </div>
+
+        {/* Skills Tags */}
+        <div className="flex flex-wrap gap-3">
+          {skills.map((skill, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.1, y: -5 }} // Floating effect on hover
+              transition={{ type: "spring", stiffness: 300, damping: 15 }}
+              className={`px-6 py-4 rounded-full shadow-md text-sm font-medium transition-all
+              ${isDarkMode ? "bg-[#2a2a2a] text-white" : "bg-gray-200 text-gray-800"}
+            `}
+            >
+              {skill.name}
+            </motion.div>
+          ))}
+        </div>
       </div>
-      <div className="grid grid-cols-2 gap-3">
-        {skills.map((skill, index) => (
-          <div
-            key={index}
-            className={`p-3 rounded-lg ${
-              isDarkMode ? 'bg-[#2a2a2a]' : 'bg-gray-100'
-            }`}
-          >
-            <p className="font-medium">{skill.name}</p>
-            <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-              {skill.level}
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+    );
+  };
+
 
   const BlogCard = () => (
     <div className="flex flex-col h-full">
@@ -69,54 +80,71 @@ function App() {
         <h2 className="text-xl font-semibold">Gallery</h2>
         <Image className="w-6 h-6 text-pink-400" />
       </div>
-      <div className="grid grid-cols-2 gap-3">
+
+      <Swiper
+        modules={[Pagination, Autoplay]}
+        spaceBetween={10}
+        slidesPerView={1}
+        loop={true}
+        autoplay={{ delay: 2500, disableOnInteraction: false }}
+        pagination={{ clickable: true }}
+        className="w-full rounded-lg shadow-lg"
+      >
         {gallery.map((item, index) => (
-          <div key={index} className="relative aspect-square rounded-lg overflow-hidden">
-            <img
-              src={item.image}
-              alt={item.title}
-              className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-            />
-          </div>
+          <SwiperSlide key={index}>
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </div>
   );
 
   const SocialCard = () => (
     <div className="flex flex-col h-full">
-      <h2 className="text-xl font-semibold mb-6">Connect</h2>
+      <h2 className="text-xl font-semibold mb-6">Profiles</h2>
       <div className="flex flex-col gap-4">
         <a
           href="https://github.com/vaibhavi-2-0-2-3"
           target="_blank"
           rel="noopener noreferrer"
-          className={`flex items-center gap-3 hover:text-gray-400 transition-colors ${
-            isDarkMode ? 'hover:text-gray-400' : 'hover:text-gray-600'
-          }`}
+          className={`flex items-center gap-3 hover:text-gray-400 transition-colors ${isDarkMode ? 'hover:text-gray-400' : 'hover:text-gray-600'
+            }`}
         >
           <Github className="w-5 h-5" />
           GitHub
         </a>
         <a
-          href="mailto:your.email@example.com"
-          className={`flex items-center gap-3 transition-colors ${
-            isDarkMode ? 'hover:text-gray-400' : 'hover:text-gray-600'
-          }`}
+          href="mailto:your.vaibhavigaonkar760@example.com"
+          className={`flex items-center gap-3 transition-colors ${isDarkMode ? 'hover:text-gray-400' : 'hover:text-gray-600'
+            }`}
         >
           <Mail className="w-5 h-5" />
           Email
         </a>
         <a
-          href="https://linkedin.com/in/your-profile"
+          href="https://www.linkedin.com/in/vaibhavi-gaonkar-4660522a6/"
           target="_blank"
           rel="noopener noreferrer"
-          className={`flex items-center gap-3 transition-colors ${
-            isDarkMode ? 'hover:text-gray-400' : 'hover:text-gray-600'
-          }`}
+          className={`flex items-center gap-3 transition-colors ${isDarkMode ? 'hover:text-gray-400' : 'hover:text-gray-600'
+            }`}
         >
           <Linkedin className="w-5 h-5" />
           LinkedIn
+        </a>
+        <a
+          href="https://leetcode.com/u/vaibhavi_2_0_2_4/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`flex items-center gap-3 transition-colors ${isDarkMode ? 'hover:text-gray-400' : 'hover:text-gray-600'}`}
+        >
+          <Code2 className="w-5 h-5 text-500" />
+          LeetCode
         </a>
       </div>
     </div>
@@ -143,24 +171,26 @@ function App() {
           >
             <div className="flex items-start justify-between">
               <div>
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">Vaibhavi</h1>
+                <h1 className="text-4xl md:text-5xl font-bold mb-4">Vaibhavi Gaonkar</h1>
                 <div className="h-20">
+                  <div dangerouslySetInnerHTML={{
+                    __html: ` Hey! I am <span class="font-bold font-[cursive] text-purple-500">Vaibhavi</span>, hailing from Goa - India! 🌊 `
+                  }} />
+
                   <TypeAnimation
                     sequence={[
-                      'A passionate software developer',
+                      'Currently building a cool carpooling platform 🚗💨',
                       2000,
-                      'Building impactful solutions',
+                      'My world revolves around web development 🕸️',
                       2000,
-                      'Creating beautiful user experiences',
-                      2000,
-                      'Turning ideas into reality',
+                      'And yes, my code runs better than my jokes! 😆💻',
                       2000,
                     ]}
-                    wrapper="p"
+                    wrapper="div"
                     speed={50}
-                    className={`text-xl ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}
                     repeat={Infinity}
                   />
+
                 </div>
               </div>
               <User className={`w-12 h-12 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`} />
@@ -172,21 +202,37 @@ function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className={`rounded-3xl p-8 cursor-pointer ${isDarkMode ? 'bg-[#1a1a1a]' : 'bg-white'}`}
+            className={`rounded-3xl p-8 flex items-center justify-center cursor-pointer ${isDarkMode ? 'bg-[#1a1a1a] text-white' : 'bg-white text-gray-900'
+              } shadow-lg`}
             onClick={toggleTheme}
+            aria-label="Toggle Dark Mode"
           >
-            <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold">Theme</h2>
-              {isDarkMode ? (
-                <Sun className="w-6 h-6 text-yellow-400" />
-              ) : (
-                <Moon className="w-6 h-6 text-blue-600" />
-              )}
-            </div>
-            <p className={`mt-4 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-              Click to toggle {isDarkMode ? 'light' : 'dark'} mode
-            </p>
+            <motion.div
+              layout
+              transition={{ type: "spring", stiffness: 700, damping: 30 }}
+              className={`w-20 h-10 flex items-center rounded-full p-1 ${isDarkMode ? "bg-gray-800" : "bg-gray-300"
+                }`}
+            >
+              <motion.div
+                layout
+                animate={{ x: isDarkMode ? 32 : 0 }} // Moves left/right smoothly
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className={`w-8 h-8 flex items-center justify-center rounded-full shadow-md ${isDarkMode ? "bg-black" : "bg-white"
+                  }`}
+              >
+                <motion.span
+                  animate={{ rotate: isDarkMode ? 360 : 0 }} // Rotates emoji
+                  transition={{ duration: 0.5 }}
+                  className="text-2xl" // Increases emoji size
+                >
+                  {isDarkMode ? "🌙" : "☀️"}
+                </motion.span>
+              </motion.div>
+            </motion.div>
           </motion.div>
+
+
+
 
           {items.map((item) => (
             <Reorder.Item
