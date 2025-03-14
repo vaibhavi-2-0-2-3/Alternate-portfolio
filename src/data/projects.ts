@@ -8,7 +8,7 @@ import chinu1 from "../assets/chinu1.jpg";
 import fish from "../assets/fish.jpg";
 import chinu2 from "../assets/chinu2.jpg";
 import chinu3 from "../assets/chinu3.jpg";
-import drive from "../assets/drive.jpg";
+import drive from "../assets/car-drives.jpeg";
 import shells from "../assets/shells.jpg";
 import bridge from "../assets/bridge.jpg";
 
